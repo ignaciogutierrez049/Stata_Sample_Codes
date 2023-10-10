@@ -2,11 +2,11 @@
 *** World Bank DIME Stata Sample Code ***
 
 	** This sample code analyzes a randomized control trial performed in India to increase voter turnout, with an emphasis on female 
-	** participation, for a 2010 election in India. The RCT was conducted in 27 towns, with roughly half of the polling booths in each 
-	** town randomly selected for treatment. The outcomes of interest were total turnout (the number of votes cast at each polling 
-	** booth) and female turnout (the number of votes cast by women at each polling booth). Data was also collected on the number of 
-	** registered voters at each polling booth, disaggregated by gender, but for some polling booths this data could not be obtained, 
-	** so data entry operations entered "-999" whenever they were missing data.
+	participation, for a 2010 election in India. The RCT was conducted in 27 towns, with roughly half of the polling booths in each 
+	town randomly selected for treatment. The outcomes of interest were total turnout (the number of votes cast at each polling booth) 
+	and female turnout (the number of votes cast by women at each polling booth). Data was also collected on the number of registered 
+	voters at each polling booth, disaggregated by gender, but for some polling booths this data could not be obtained, so data entry 
+	operations entered "-999" whenever they were missing data **
 
 
 * Section 1: Data Cleaning 
