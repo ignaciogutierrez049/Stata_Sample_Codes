@@ -156,8 +156,10 @@
 	
 * Conclusion: 
 
-	** Regression Analysis: based on the results of the regression analysis, the treatment increased total election turnout in the polling booth where it was implemented with a 5% statistical significance level. When we control for the total number of registered voters at each booth, as well as impose town-level fixed effects to control for inherent differences across towns, the 
-	** results are the same. The average total election turnout for the control polling booths was roughly 461, whereas the total 
+	** Regression Analysis: based on the results of the regression analysis, the treatment increased total election turnout in the 
+	** polling booth where it was implemented with a 5% statistical significance level. When we control for the total number of 
+	** registered voters at each booth, as well as impose town-level fixed effects to control for inherent differences across towns, 
+	** the results are the same. The average total election turnout for the control polling booths was roughly 461, whereas the total 
 	** election turnout in the treatment polling booths increased by roughly 7 voters for the first regression and roughly 8 voters for
 	** the second regression, which included a control variable and town-fixed effects. 
 	
