@@ -1,12 +1,12 @@
 
-*** World Bank Stata Sample Code ***
+*** World Bank DIME Stata Sample Code ***
 
-** This sample code analyzes a randomized control trial performed in India to increase voter turnout, with an emphasis on female 
-** participation, for a 2010 election in India. The RCT was conducted in 27 towns, with roughly half of the polling booths in each town 
-** randomly selected for treatment. The outcomes of interest were total turnout (the number of votes cast at each polling booth) and female 
-** turnout (the number of votes cast by women at each polling booth). Data was also collected on the number of registered voters at each 
-** polling booth, disaggregated by gender, but for some polling booths this data could not be obtained, so data entry operations entered 
-** "-999" whenever they were missing data.
+	** This sample code analyzes a randomized control trial performed in India to increase voter turnout, with an emphasis on female 
+	** participation, for a 2010 election in India. The RCT was conducted in 27 towns, with roughly half of the polling booths in each 
+	** town randomly selected for treatment. The outcomes of interest were total turnout (the number of votes cast at each polling 
+	** booth) and female turnout (the number of votes cast by women at each polling booth). Data was also collected on the number of 
+	** registered voters at each polling booth, disaggregated by gender, but for some polling booths this data could not be obtained, 
+	** so data entry operations entered "-999" whenever they were missing data.
 
 
 * Section 1: Data Cleaning 
@@ -156,16 +156,14 @@
 	
 * Conclusion: 
 
-	** Regression Analysis: Based on the results of the regression analysis, the treatment increased total election turnout in the 
-	polling booth where it was implemented with a 5% statistical significance level. When we control for the total number of 
-	registered voters at each booth, as well as impose town-level fixed effects to control for inherent differences across towns, the 
-	results are the same. The average total election turnout for the control polling booths was roughly 461, whereas the total election
-	turnout in the treatment polling booths increased by roughly 7 voters for the first regression and roughly 8 voters for the second 
-	regression, which included a control variable and town-fixed effects. 
+	** Regression Analysis: based on the results of the regression analysis, the treatment increased total election turnout in the polling booth where it was implemented with a 5% statistical significance level. When we control for the total number of registered voters at each booth, as well as impose town-level fixed effects to control for inherent differences across towns, the 
+	** results are the same. The average total election turnout for the control polling booths was roughly 461, whereas the total 
+	** election turnout in the treatment polling booths increased by roughly 7 voters for the first regression and roughly 8 voters for
+	** the second regression, which included a control variable and town-fixed effects. 
 	
-	** Data Visualization: Based on the results of our bar graph, total female turnout in the treatment polling booths did not surpass 
-	female turnout in the control polling booths. This suggests that while the treatment might have increased total voter turnout in 
-	the polling booths where it was implemented, it may have failed to elevate total female turnout in those same booths.
+	** Data Visualization: based on the results of our bar graph, total female turnout in the treatment polling booths did not surpass 
+	** female turnout in the control polling booths. This suggests that while the treatment might have increased total voter turnout in
+	** the polling booths where it was implemented, it may have failed to elevate total female turnout in those same booths.
 
 	
 
