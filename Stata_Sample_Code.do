@@ -5,7 +5,11 @@
 
 * Summary:
 
-** This sample code analyzes a randomized control trial performed in India to increase voter turnout, with an emphasis on female participation, for a 2010 election in India. The RCT was conducted in 27 towns, with roughly half of the polling booths in each town randomly selected for treatment. The outcomes of interest were total turnout (the number of votes cast at each polling booth) and female turnout (the number of votes cast by women at each polling booth). Data was also collected on the number of registered voters at each polling booth, disaggregated by gender, but for some polling booths this data could not be obtained, so data entry operations entered "-999" whenever they were missing data **
+** This sample code analyzes a randomized control trial performed in India to increase voter turnout, with an emphasis on female participation,
+for a 2010 election in India. The RCT was conducted in 27 towns, with roughly half of the polling booths in each town randomly selected for 
+treatment. The outcomes of interest were total turnout (the number of votes cast at each polling booth) and female turnout (the number of votes 
+cast by women at each polling booth). Data was also collected on the number of registered voters at each polling booth, disaggregated by gender,
+but for some polling booths this data could not be obtained, so data entry operations entered "-999" whenever they were missing data **
 
 
 
@@ -130,7 +134,7 @@
 		reghdfe turnout_total treatment, absorb(town_id)
 		eststo: reghdfe turnout_total treatment, absorb(town_id)
 		
-	* Regress total turnout on treatment, with town fixed effects, controlling for total registered voters at each polling station; store results
+	* Regress total turnout on treatment, with town fixed effects, controlling for total registered voters at each poll; store results
 		reghdfe turnout_total treatment registered_total, absorb(town_id)
 		eststo: reghdfe turnout_total treatment registered_total, absorb(town_id)
 		
@@ -160,10 +164,16 @@
 * Conclusion: 
 
 
-** Regression Analysis: based on the results of the regression analysis, the treatment increased total election turnout in the polling booth where it was implemented with a 5% statistical significance level. When we control for the total number of registered voters at each booth, as well as impose town-level fixed effects to control for inherent differences across towns, the results are the same. The average total election turnout for the control polling booths was roughly 461, whereas the total election turnout in the treatment polling booths increased by roughly 7 voters for the first regression and roughly 8 voters for the second regression, which included a control variable and town-fixed effects **
+** Regression Analysis: based on the results of the regression analysis, the treatment increased total election turnout in the polling booth 
+where it was implemented with a 5% statistical significance level. When we control for the total number of registered voters at each booth, as
+well as impose town-level fixed effects to control for inherent differences across towns, the results are the same. The average total election
+turnout for the control polling booths was roughly 461, whereas the total election turnout in the treatment polling booths increased by roughly
+7 voters for the first regression and roughly 8 voters for the second regression, which included a control variable and town-fixed effects **
 
 
-** Data Visualization: based on the results of our bar graph, total female turnout in the treatment polling booths did not surpass female turnout in the control polling booths. This suggests that while the treatment might have increased total voter turnout in the polling booths where it was implemented, it may have failed to elevate total female turnout in those same booths **
+** Data Visualization: based on the results of our bar graph, total female turnout in the treatment polling booths did not surpass female 
+turnout in the control polling booths. This suggests that while the treatment might have increased total voter turnout in the polling booths 
+where it was implemented, it may have failed to elevate total female turnout in those same booths **
 
 
 ********************************** END OF CODE *********************************
@@ -177,7 +187,12 @@
 	
 * Summary: 
 
-** PROGRESA is a program of the Mexican government to reduce poverty, improve health, and increase educational attainment in the country, initially in rural areas and now in urban areas as well. In a sample of 506 villages, the phase-in was randomly assigned: 320 villages (the "treatment" villages) got the program in May 1998, and 186 villages (the "control" villages) did not get the program until December 2000. First, this evaluation will run descriptive statistics for variables of interest in the study. Second, this evaluation will run a balance test for randomization of the treatment. Third, this evaluation will assess the quantitative impact of the program by subgroups, followed by a conclusion either supporting or rejecting the effectiveness of this policy initiative. 
+** PROGRESA is a program of the Mexican government to reduce poverty, improve health, and increase educational attainment in the country, 
+initially in rural areas and now in urban areas as well. In a sample of 506 villages, the phase-in was randomly assigned: 320 villages (the 
+"treatment" villages) got the program in May 1998, and 186 villages (the "control" villages) did not get the program until December 2000. 
+First, this evaluation will run descriptive statistics for variables of interest in the study. Second, this evaluation will run a balance test 
+for randomization of the treatment. Third, this evaluation will assess the quantitative impact of the program by subgroups, followed by a 
+conclusion either supporting or rejecting the effectiveness of this policy initiative. 
 
 
 
@@ -239,7 +254,7 @@
 
 		preserve
 		
-		* Calculate means and standard errors for three interest variables for group of treatment control villages, children ages 6 - 16 (collapse dataset)
+		* Calculate means and standard errors for three interest variables for group of treatment control villages, children ages 6 - 16
 			keep if age97>=6 & age97<=16
 
 			collapse (mean) age97mean=age97 (sd) age97sd=age97 (count) age97count=age97 ///
@@ -251,7 +266,7 @@
 			gen grade97se = grade97sd / grade97count^0.5
 			gen enroll97se = enroll97sd / enroll97count^0.5 
 			
-		* Calculate difference in means for interest variables, standard error of difference, and construct 95% confidence interval w/ upper and lower bounds
+		* Calculate difference in means for interest variables, std. error of difference, and 95% confidence interval w/ upper and lower bounds
 			gen id=_n
 			
 			
@@ -323,7 +338,7 @@
 			ttest work98 if primary==0, by(program) unequal	
 			
 
-	* Conduct t-test for null that the program had no effect on the likelihood of students finishing primary school and continuing onto secondary school 
+	* Conduct t-test for null that program had no effect on likelihood of students finishing primary school and continuing onto secondary school 
 		ttest continued98, by(program) unequal
 	
 	
@@ -352,7 +367,13 @@
 				
 * Conclusion: 
 
-** Based on the evidence, the PROGRESA policy initiative appears to have a tangibly positive impact on poverty outcomes across poor rural villages in Mexico. The results show the program triggered legitimate increases in school enrollments for children and enabled more of them to attend secondary school. Furthermore, the program did not generally lead to increases in the number of children who worked. The cash transfer worked as intended, supplementing household incomes and allowing children to attend more school rather than drop out and work to support their families. I recommend that the program emphasizes targeting children of secondary-school age (12 to 16 years of age) since these show the greatest propensity to drop out of school and work. Furthermore, the results are not quite as statistically significant for children of primary school age (6 to 11 years of age) ** 
+** Based on the evidence, the PROGRESA policy initiative appears to have a tangibly positive impact on poverty outcomes across poor rural 
+villages in Mexico. The results show the program triggered legitimate increases in school enrollments for children and enabled more of them to 
+attend secondary school. Furthermore, the program did not generally lead to increases in the number of children who worked. The cash transfer 
+worked as intended, supplementing household incomes and allowing children to attend more school rather than drop out and work to support their 
+families. I recommend that the program emphasizes targeting children of secondary-school age (12 to 16 years of age) since these show the 
+greatest propensity to drop out of school and work. Furthermore, the results are not quite as statistically significant for children of primary
+school age (6 to 11 years of age) ** 
 		
 		
 ******************************* END OF CODE ************************************
