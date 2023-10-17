@@ -5,7 +5,12 @@
 
 * SUMMARY:
 
-*** This sample code analyzes a randomized control trial performed in India to increase voter turnout, with an emphasis on female participation, for a 2010 election in India. The RCT was conducted in 27 towns, with roughly half of the polling booths in each town randomly selected for treatment. The outcomes of interest were total turnout (the number of votes cast at each polling booth) and female turnout (the number of votes cast by women at each polling booth). Data was also collected on the number of registered voters at each polling booth, disaggregated by gender, but for some polling booths this data could not be obtained, so data entry operations entered "-999" whenever they were missing data. 
+*** This sample code analyzes a randomized control trial performed in India to increase voter turnout, with an emphasis on female participation, 
+*** for a 2010 election in India. The RCT was conducted in 27 towns, with roughly half of the polling booths in each town randomly selected for 
+*** treatment. The outcomes of interest were total turnout (the number of votes cast at each polling booth) and female turnout (the number of 
+*** votes cast by women at each polling booth). Data was also collected on the number of registered voters at each polling booth, disaggregated 
+*** by gender, but for some polling booths this data could not be obtained, so data entry operations entered "-999" whenever they were missing 
+*** data. 
 
 
 
@@ -166,10 +171,18 @@
 * CONCLUSION: 
 
 
-*** Regression Analysis: based on the results of the regression analysis, the treatment increased total election turnout in the polling booth where it was implemented with a 5% statistical significance level. When we control for the total number of registered voters at each booth, as well as impose town-level fixed effects to control for inherent differences across towns, the results are the same. The average total election turnout for the control polling booths was roughly 461, whereas the total election turnout in the treatment polling booths increased by roughly 7 voters for the first regression and roughly 8 voters for the second regression, which included a control variable and town-fixed effects. 
+*** Regression Analysis: based on the results of the regression analysis, the treatment increased total election turnout in the polling booth 
+*** where it was implemented with a 5% statistical significance level. When we control for the total number of registered voters at each booth, 
+*** as well as impose town-level fixed effects to control for inherent differences across towns, the results are the same. The average total 
+*** election turnout for the control polling booths was roughly 461, whereas the total election turnout in the treatment polling booths increased
+*** by roughly 7 voters for the first regression and roughly 8 voters for the second regression, which included a control variable and town-fixed
+*** effects. 
 
 
-*** Data Visualization: based on the results of our bar graph, total female turnout in the treatment polling booths did not surpass female turnout in the control polling booths. This suggests that while the treatment might have increased total voter turnout in the polling booths where it was implemented, it may have failed to elevate total female turnout in those same booths, likely still targeting males as the primary voter base. 
+*** Data Visualization: based on the results of our bar graph, total female turnout in the treatment polling booths did not surpass female 
+*** turnout in the control polling booths. This suggests that while the treatment might have increased total voter turnout in the polling booths 
+*** where it was implemented, it may have failed to elevate total female turnout in those same booths, likely still targeting males as the 
+*** primary voter base. 
 
 
 ********************************** END OF CODE *********************************
@@ -183,7 +196,12 @@
 	
 * SUMMARY: 
 
-*** PROGRESA is a program of the Mexican government to reduce poverty, improve health, and increase educational attainment in the country, initially in rural areas and now in urban areas as well. In a sample of 506 villages, the phase-in was randomly assigned: 320 villages (the "treatment" villages) got the program in May 1998, and 186 villages (the "control" villages) did not get the program until December 2000. First, this evaluation will run descriptive statistics for variables of interest in the study. Second, this evaluation will run a balance test for randomization of the treatment. Third, this evaluation will assess the quantitative impact of the program by subgroups, followed by a conclusion either supporting or rejecting the effectiveness of this policy initiative. 
+*** PROGRESA is a program of the Mexican government to reduce poverty, improve health, and increase educational attainment in the country, 
+*** initially in rural areas and now in urban areas as well. In a sample of 506 villages, the phase-in was randomly assigned: 320 villages (the 
+*** "treatment" villages) got the program in May 1998, and 186 villages (the "control" villages) did not get the program until December 2000. 
+*** First, this evaluation will run descriptive statistics for variables of interest in the study. Second, this evaluation will run a balance 
+*** test for randomization of the treatment. Third, this evaluation will assess the quantitative impact of the program by subgroups, followed by 
+*** a conclusion either supporting or rejecting the effectiveness of this policy initiative. 
 
 
 
@@ -245,7 +263,7 @@
 
 		preserve
 		
-		* Calculate means and standard errors for age, grade, and school enrollment in 1997 for all treatment and control villages, children ages 6 - 16
+		* Calculate means and standard errors for age, grade, and school enrollment in 1997 for all treatment and control villages (children 6 - 16)
 			keep if age97>=6 & age97<=16
 
 			collapse (mean) age97mean=age97 (sd) age97sd=age97 (count) age97count=age97 ///
@@ -257,7 +275,7 @@
 			gen grade97se = grade97sd / grade97count^0.5
 			gen enroll97se = enroll97sd / enroll97count^0.5 
 			
-		* Calculate difference in means, standard error of difference, and 95% confidence interval w/ upper and lower bounds for age, grade, and school enrollment in 1997
+		* Calculate diff. in means, standard error of diff, and 95% confidence interval w/ upper and lower bounds for age, grade, and school enrollment in 1997
 			gen id=_n
 			
 			
@@ -329,7 +347,7 @@
 			ttest work98 if primary==0, by(program) unequal	
 			
 
-	* Conduct t-test for null hypothesis that program had no effect on the chance of students finishing primary school and continuing onto secondary school 
+	* Conduct t-test for null that program had no effect on the chance of students finishing primary school and continuing onto secondary school 
 		ttest continued98, by(program) unequal
 	
 	
@@ -360,7 +378,9 @@
 * OUTCOME: 
 
 
-*** The results of the evaluation show the statistical significance of the three desired outcome variables (continued98, enroll98, work98) for specific sub-groups of the population, which includes gender and primary vs secondary school placement based on age. Assuming a 95% confidence interval, the program appears to have had the largest effect on the following sub-groups:
+*** The results of the evaluation show the statistical significance of the three desired outcome variables (continued98, enroll98, work98) for 
+*** specific sub-groups of the population, which includes gender and primary vs secondary school placement based on age. Assuming a 95% 
+*** confidence interval, the program appears to have had the largest effect on the following sub-groups:
 	* Entire sample population for children who completed primary school in 1997 and continued onto secondary school 
 	* Children of secondary school age enrolling in school in 1998
 	* Males of secondary school age enrolling in school in 1998
@@ -372,16 +392,34 @@
 	* Males of primary school age having worked in the week before the 1998 survey
 	* Females of secondary school age having worked in the week before the 1998 survey
 
-*** The variables which appear to have been most affected are enroll98 and continued98, as they show statistically significant results for almost all their respective sub-groups (assuming a 95% confidence interval). The variable work98 appears to have been least affected, with only one subgroup showing statistically significant results at the 5% significance level.
+*** The variables which appear to have been most affected are enroll98 and continued98, as they show statistically significant results for almost
+*** all their respective sub-groups (assuming a 95% confidence interval). The variable work98 appears to have been least affected, with only one 
+*** subgroup showing statistically significant results at the 5% significance level.
 
-*** I attribute these findings to inherent differences between the measured outcome variables. The variable continued98 is likely to display statistically significant results, since children who finished primary school in 1997 are of the critical age (12) in which their school enrollments begin to drop and increasing numbers of them begin working. As such, the cash transfer program targets them at a significant juncture of their lives, allowing them to continue onto secondary school rather than drop out of school and work. For the enroll98 variable, a similar logic applies. The subgroups with the most significant (and thereby successful) results were those of secondary school age, regardless of gender. The program had the most success in boosting school enrollment rates because this is the age range in which children are more prone to drop out of school. Lastly, the variable work98 shows the least significant results, perhaps because the program dissuaded children across several households from working as they no longer needed the additional income. These results may coincide with the increased enrollment rates across the secondary school age group. The only statistically significant results showed that the program increased females of primary school age who worked leading up to the 1998 survey. This may be due to the outsize presence of extremely poor households who prioritized sending their male kids to school but still required their female children to work. 
+*** I attribute these findings to inherent differences between the measured outcome variables. The variable continued98 is likely to display 
+*** statistically significant results, since children who finished primary school in 1997 are of the critical age (12) in which their school 
+*** enrollments begin to drop and increasing numbers of them begin working. As such, the cash transfer program targets them at a significant 
+*** juncture of their lives, allowing them to continue onto secondary school rather than drop out of school and work. For the enroll98 variable, 
+*** a similar logic applies. The subgroups with the most significant (and thereby successful) results were those of secondary school age, 
+*** regardless of gender. The program had the most success in boosting school enrollment rates because this is the age range in which children 
+*** are more prone to drop out of school. Lastly, the variable work98 shows the least significant results, perhaps because the program dissuaded 
+*** children across several households from working as they no longer needed the additional income. These results may coincide with the increased
+*** enrollment rates across the secondary school age group. The only statistically significant results showed that the program increased females 
+*** of primary school age who worked leading up to the 1998 survey. This may be due to the outsize presence of extremely poor households who 
+*** prioritized sending their male kids to school but still required their female children to work. 
 
 	
 	
 * Conclusion: 
 
 
-*** Based on the evidence, the PROGRESA policy initiative appears to have a tangibly positive impact on poverty outcomes across poor rural villages in Mexico. The results show the program triggered legitimate increases in school enrollments for children and enabled more of them to attend secondary school. Furthermore, the program did not generally lead to increases in the number of children who worked. The cash transfer worked as intended, supplementing household incomes and allowing children to attend more school rather than drop out and work to support their families. I recommend that the program emphasizes targeting children of secondary-school age (12 to 16 years of age) since these show the greatest propensity to drop out of school and work. Furthermore, the results are not quite as statistically significant for children of primary school age (6 to 11 years of age).
+*** Based on the evidence, the PROGRESA policy initiative appears to have a tangibly positive impact on poverty outcomes across poor rural 
+*** villages in Mexico. The results show the program triggered legitimate increases in school enrollments for children and enabled more of them 
+*** to attend secondary school. Furthermore, the program did not generally lead to increases in the number of children who worked. The cash 
+*** transfer worked as intended, supplementing household incomes and allowing children to attend more school rather than drop out and work to 
+*** support their families. I recommend that the program emphasizes targeting children of secondary-school age (12 to 16 years of age) since 
+*** these show the greatest propensity to drop out of school and work. Furthermore, the results are not quite as statistically significant for 
+*** children of primary school age (6 to 11 years of age).
 		
 		
 ******************************* END OF CODE ************************************
